@@ -1,0 +1,4363 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.3.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "API_BUSSINES_PARTNERS_MAINTENANCE": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintOrderRoutingNumber": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Opertn Task List No.",
+     "@sap.quickinfo": "Routing Number of Operations in the Order"
+    },
+    "MaintenanceOrderType": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order Type",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceOrderDesc": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Description"
+    },
+    "MaintOrdBasicStartDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "MaintOrdBasicEndDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "MaintOrdBasicStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdBasicStartTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdBasicEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdBasicEndTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdSchedldBscStrtDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdSchedldBscEndDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ScheduledBasicStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ScheduledBasicStartTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ScheduledBasicEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ScheduledBasicEndTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderReferenceDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderReferenceDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderReferenceTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MainWorkCompletedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Main Work Completed",
+     "@sap.quickinfo": "Main Work Completed Date and Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceNotification": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Notification",
+     "@sap.quickinfo": "Notification Number"
+    },
+    "OrdIsNotSchedldAutomatically": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "No auto. scheduling",
+     "@sap.quickinfo": "Indicator: Do not schedule automatically"
+    },
+    "ControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MainWorkCenterInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Work Center",
+     "@sap.quickinfo": "Object ID of the Work Center"
+    },
+    "MainWorkCenterTypeCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Type",
+     "@sap.quickinfo": "Object Type of CIM Resources for Work Center",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MainWorkCenter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Work Center"
+    },
+    "MainWorkCenterPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "WorkCenterInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PP work center",
+     "@sap.quickinfo": "Object ID of PP work center"
+    },
+    "WorkCenterTypeCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Type",
+     "@sap.quickinfo": "Object types of the CIM resource",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "WorkCenter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Work Center"
+    },
+    "MaintenancePlanningPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Planning Plant",
+     "@sap.quickinfo": "Maintenance Planning Plant",
+     "@sap.updatable": "false"
+    },
+    "MaintenancePlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Plant"
+    },
+    "Assembly": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assembly"
+    },
+    "MaintOrdProcessPhaseCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Phase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdProcessSubPhaseCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Subphase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "BusinessArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Area"
+    },
+    "CompanyCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CostCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Center"
+    },
+    "CostingSheet": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Costing Sheet"
+    },
+    "ReferenceElement": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Ref. Element PM/PS",
+     "@sap.quickinfo": "Reference Element PM/PS"
+    },
+    "FunctionalArea": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Functional Area"
+    },
+    "AdditionalDeviceData": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Addit. device data",
+     "@sap.quickinfo": "Additional Device Data"
+    },
+    "Equipment": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number"
+    },
+    "EquipmentName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Object Description",
+     "@sap.quickinfo": "Description of technical object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "FunctionalLocation": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Functional Location"
+    },
+    "MaintenanceOrderPlanningCode": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order planning ind.",
+     "@sap.quickinfo": "Maintenance order planning indicator"
+    },
+    "MaintenancePlannerGroup": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maint. Planner Group",
+     "@sap.quickinfo": "Planner Group for Customer Service and Plant Maintenance"
+    },
+    "MaintenanceActivityType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity Type",
+     "@sap.quickinfo": "Maintenance Activity Type"
+    },
+    "MaintPriority": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Priority"
+    },
+    "MaintPriorityType": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Priority Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OrderProcessingGroup": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Processing group",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProfitCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Profit Center"
+    },
+    "ResponsibleCostCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Respons. Cost Center",
+     "@sap.quickinfo": "Responsible Cost Center"
+    },
+    "Currency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Order Currency",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "currency-code"
+    },
+    "MaintenanceRevision": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Revision",
+     "@sap.quickinfo": "Revision for Plant Maintenance and Customer Service"
+    },
+    "SerialNumber": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.label": "Serial Number"
+    },
+    "Product": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number"
+    },
+    "SuperiorProjectNetwork": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Subnetwork of",
+     "@sap.quickinfo": "Number of superior network",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OperationSystemCondition": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "System Condition"
+    },
+    "WBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Work Breakdown Structure Element (WBS Element) Edited"
+    },
+    "WBSElementInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Internal ID",
+     "@sap.quickinfo": "WBS Element"
+    },
+    "ProjectInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Project Def.",
+     "@sap.quickinfo": "Project (internal)"
+    },
+    "ControllingObjectClass": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Object Class"
+    },
+    "MaintenanceOrderInternalID": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceObjectList": {
+     "type": "cds.Integer64",
+     "@sap.label": "Object list",
+     "@sap.quickinfo": "Object list number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjectLocAcctAssgmtNmbr": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Loc/Acct Assignment",
+     "@sap.quickinfo": "Location and account assignment for technical object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "AssetLocation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Location",
+     "@sap.quickinfo": "Location of maintenance object"
+    },
+    "AssetRoom": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Room"
+    },
+    "PlantSection": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant Section"
+    },
+    "ABCIndicator": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "ABC Indicator",
+     "@sap.quickinfo": "ABC Indicator for Technical Object"
+    },
+    "MaintObjectFreeDefinedAttrib": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sort Field"
+    },
+    "BasicSchedulingType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Scheduling type"
+    },
+    "LatestAcceptableCompletionDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Final Due Date"
+    },
+    "MaintOrdPersonResponsible": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Person Resp. ID",
+     "@sap.quickinfo": "Person Responsible ID"
+    },
+    "LastChangeByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Last Changed By",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Entered By",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderCreationDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OrderHasLongText": {
+     "type": "cds.Boolean",
+     "@sap.label": "Order Has Long Text",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceOrderOverheadCode": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Overhead key"
+    },
+    "PlannedCostsCostingVariant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plnd Costing Variant",
+     "@sap.quickinfo": "Costing Variant for Planned Costs",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ActualCostsCostingVariant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Act. Costing Variant",
+     "@sap.quickinfo": "Costing Variant For Actual Costs",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenancePlan": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Plan",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceCall": {
+     "type": "cds.Integer",
+     "@sap.label": "MntPlan Call No.",
+     "@sap.quickinfo": "Maintenance Plan Call Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceItem": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Item",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LeadingOrder": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Last order",
+     "@sap.quickinfo": "Order number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "TaskListType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "BOO Type",
+     "@sap.quickinfo": "Bill of Operations Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "TaskListGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Bill of Operations",
+     "@sap.quickinfo": "Bill of Operations ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "TaskListGroupCounter": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "BOO Variant",
+     "@sap.quickinfo": "Bill of Operations Variant",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LocAcctAssgmtWBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Work Breakdown Structure Element (WBS Element) Edited"
+    },
+    "LocAcctAssgmtWBSElmntIntID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Internal ID",
+     "@sap.quickinfo": "WBS Element"
+    },
+    "ControllingSettlementProfile": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Settlement Profile"
+    },
+    "LocAcctAssgmtBusinessArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Area"
+    },
+    "LocAcctAssgmtControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LocAcctAssgmtCompanyCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code"
+    },
+    "MaintOrderProcessingContext": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Processing Context",
+     "@sap.quickinfo": "Additional Processing Context for Maintenance Order",
+     "@sap.updatable": "false"
+    },
+    "SystemStatusText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "System Status",
+     "@sap.quickinfo": "System Status Line",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "UserStatusText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "User Status",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "TechnicalObject": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Technical Object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false"
+    },
+    "TechnicalObjectLabel": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Technical Object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false"
+    },
+    "TechObjIsEquipOrFuncnlLoc": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Tech. Obj. Type",
+     "@sap.quickinfo": "Technical Object Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false"
+    },
+    "to_MaintenanceOrderLongText": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderLongText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintenanceOrderPartner": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderPartner",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintenanceOrderPhaseControl": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderPhaseControl",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderObjectListItem": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderObjectListItem",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderSettlmtDistrRule_2": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderSettlmtDistrRule",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   },
+   "actions": {
+    "ApproveMaintenanceOrder": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "AssignMaintNotificationToOrder": {
+     "kind": "action",
+     "params": {
+      "MaintenanceNotification": {
+       "type": "cds.String",
+       "length": 12,
+       "@sap.label": "Notification",
+       "@sap.quickinfo": "Notification Number"
+      },
+      "NotificationIsHeaderNotif": {
+       "type": "cds.Boolean",
+       "@sap.label": "Header Notif.",
+       "@sap.quickinfo": "Flag: notification assigned to order header"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "RejectMaintenanceOrder": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ReleaseMaintenanceOrder": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrderStatusClosed": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrderStsRdyForSchedg": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrdOpsStsDispatched": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrdStsMainWorkCmplt": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrdStsMrkdForDeltn": {
+     "kind": "action",
+     "params": {
+      "AssgdMaintNotifIsToBeResetDel": {
+       "type": "cds.Boolean",
+       "@sap.label": "Also reset the deletion flag for the assigned notifications",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ResetMaintOrdStsTechCompleted": {
+     "kind": "action",
+     "params": {
+      "AssgdMaintNotifIsToBePutInProc": {
+       "type": "cds.Boolean",
+       "@sap.label": "Put Assigned Notifications In Process Again",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "ScheduleMaintenanceOrder": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderOpsToDispatched": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderStatusToClosed": {
+     "kind": "action",
+     "params": {
+      "MaintOrderReferenceDateTime": {
+       "type": "cds.DateTime",
+       "@odata.Type": "Edm.DateTimeOffset",
+       "@sap.label": "Completion Date/Time",
+       "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+      },
+      "AssignedMaintNotifIsToBeClosed": {
+       "type": "cds.Boolean",
+       "@sap.label": "Complete Assigned Notifications",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderStatusToLocked": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderStatusToUnlocked": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderToDoNotExecute": {
+     "kind": "action",
+     "params": {
+      "MaintOrderReferenceDateTime": {
+       "type": "cds.DateTime",
+       "@odata.Type": "Edm.DateTimeOffset",
+       "@sap.label": "Reference Date/Time",
+       "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+      },
+      "MaintOrdCancellationAction": {
+       "type": "cds.String",
+       "length": 1,
+       "@sap.value.list": "fixed-values",
+       "@sap.label": "What should happen to assigned notifications",
+       "@sap.quickinfo": "Do Not Execute Order and Determine Notification Status"
+      },
+      "AssignedMaintNotifIsToBeClosed": {
+       "type": "cds.Boolean",
+       "@sap.label": "Complete All Assigned Notifications",
+       "@sap.quickinfo": "Truth Value: True/False"
+      },
+      "AssgdMaintNotifIsToBeRsetAlloc": {
+       "type": "cds.Boolean",
+       "@sap.label": "Complete Header Notification and Unassign Others",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderToReadyForSchedg": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrdStsToMrkdForDeltn": {
+     "kind": "action",
+     "params": {
+      "AssgdMaintNotifIsToBeSetDel": {
+       "type": "cds.Boolean",
+       "@sap.label": "Also set the deletion flag for the assigned notifications",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrdToMainWorkComplete": {
+     "kind": "action",
+     "params": {
+      "MainWorkCompletedDateTime": {
+       "type": "cds.DateTime",
+       "@odata.Type": "Edm.DateTimeOffset",
+       "@sap.label": "Main Work Completion Date and Time",
+       "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+      },
+      "MainWrkCmpltdDateTimeIsUsed": {
+       "type": "cds.Boolean",
+       "@sap.label": "Set as Reference Date and Time",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrdToTechCompleted": {
+     "kind": "action",
+     "params": {
+      "MainWrkCmpltdDateTimeIsUsed": {
+       "type": "cds.Boolean",
+       "@sap.label": "Use Main Work Completed Date and Time",
+       "@sap.quickinfo": "Truth Value: True/False"
+      },
+      "MaintOrderReferenceDateTime": {
+       "type": "cds.DateTime",
+       "@odata.Type": "Edm.DateTimeOffset",
+       "@sap.label": "Completion Date/Time",
+       "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+      },
+      "AssignedMaintNotifIsToBeClosed": {
+       "type": "cds.Boolean",
+       "@sap.label": "Complete Assigned Notifications",
+       "@sap.quickinfo": "Truth Value: True/False"
+      }
+     },
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SubmitMaintOrderForApproval": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderLongText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Long Text",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "TextObjectType": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Text ID",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderLongText": {
+     "type": "cds.LargeString",
+     "@sap.label": "Long Text"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Operation",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "OperationControlKey": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Control Key"
+    },
+    "OperationWorkCenterInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Object ID",
+     "@sap.quickinfo": "Object ID of the resource"
+    },
+    "WorkCenter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Work Center"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "OperationStandardTextCode": {
+     "type": "cds.String",
+     "length": 7,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Standard text key"
+    },
+    "OperationDescription": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Operation Short Text"
+    },
+    "MaintOrderRoutingNumber": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Opertn Task List No.",
+     "@sap.quickinfo": "Routing Number of Operations in the Order",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceOrderRoutingNode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "General counter for order",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SuperiorOperationInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Superior Op. Node",
+     "@sap.quickinfo": "Node Number of the Superior Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OperationWorkCenterTypeCode": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Language": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "NumberOfTimeTickets": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "No. of Time Tickets",
+     "@sap.quickinfo": "Number of Time Tickets",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OperationPurgInfoRecdSearchTxt": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sort Term",
+     "@sap.quickinfo": "Sort Term for Non-Stock Info Records"
+    },
+    "OperationSupplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier",
+     "@sap.quickinfo": "Account Number of Supplier"
+    },
+    "OpExternalProcessingPrice": {
+     "type": "cds.Decimal",
+     "precision": 11,
+     "scale": 3,
+     "@sap.unit": "OpExternalProcessingCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Price"
+    },
+    "OpExternalProcessingPriceUnit": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 0,
+     "@sap.unit": "MaintOrdOperationQuantityUnit",
+     "@sap.label": "Price unit"
+    },
+    "OpExternalProcessingCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.semantics": "currency-code"
+    },
+    "CostElement": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Element"
+    },
+    "OperationPurchasingInfoRecord": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Info Rec.",
+     "@sap.quickinfo": "Purchasing Info Record Number"
+    },
+    "PurchasingOrganization": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purch. Organization",
+     "@sap.quickinfo": "Purchasing Organization"
+    },
+    "PurchasingGroup": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Group",
+     "@sap.quickinfo": "Purchasing Group for External Processing Activity"
+    },
+    "MaterialGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Group"
+    },
+    "OpPurchaseOutlineAgreement": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Outline agreement",
+     "@sap.quickinfo": "Number of principal purchase agreement"
+    },
+    "OpPurchaseOutlineAgreementItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Agreement Item",
+     "@sap.quickinfo": "Item Number of Principal Purchase Agreement"
+    },
+    "OperationRequisitionerName": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.label": "Requisitioner",
+     "@sap.quickinfo": "Name of requisitioner/requester"
+    },
+    "OperationTrackingNumber": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Req. Tracking Number",
+     "@sap.quickinfo": "Requirement Tracking Number"
+    },
+    "NumberOfCapacities": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.label": "Number",
+     "@sap.quickinfo": "Number of capacities required"
+    },
+    "OperationWorkPercent": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.label": "Percent",
+     "@sap.quickinfo": "Work percentage"
+    },
+    "OperationCalculationControl": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Calculation Key",
+     "@sap.quickinfo": "Key for calculation"
+    },
+    "ActivityType": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity Type"
+    },
+    "OperationSystemCondition": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "System Condition"
+    },
+    "OperationGoodsRecipientName": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.label": "Goods Recipient"
+    },
+    "OperationUnloadingPointName": {
+     "type": "cds.String",
+     "length": 25,
+     "@sap.label": "Unloading Point"
+    },
+    "OperationPersonResponsible": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Personnel number"
+    },
+    "DeliveryTimeInDays": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Planned Deliv. Time",
+     "@sap.quickinfo": "Planned Delivery Time in Days"
+    },
+    "MaintOrderOperationDuration": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1,
+     "@sap.unit": "MaintOrdOperationDurationUnit",
+     "@sap.label": "Normal Duration",
+     "@sap.quickinfo": "Normal Duration of Activity"
+    },
+    "MaintOrdOperationDurationUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Normal Duration Unit",
+     "@sap.quickinfo": "Normal Duration/Unit",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "OpErlstSchedldExecStrtDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpErlstSchedldExecEndDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecStrtDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecEndDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionStartDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionEndDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpBscStartDateConstraintType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Constraint on start",
+     "@sap.quickinfo": "Constraint on the basic start date for the activity"
+    },
+    "OpBscEndDateConstraintType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Constraint on finish",
+     "@sap.quickinfo": "Constraint on the finish date of the activity"
+    },
+    "MaintOrdOperationWorkDuration": {
+     "type": "cds.Decimal",
+     "precision": 7,
+     "scale": 1,
+     "@sap.unit": "MaintOrdOpWorkDurationUnit",
+     "@sap.label": "Work",
+     "@sap.quickinfo": "Work involved in the activity"
+    },
+    "MaintOrdOpWorkDurationUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit for Work",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "MaintOrdOpConstraintStrtDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "ConstraintDateForBscStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ConstraintTimeForBscStartTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpCstrtFinishDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "ConstraintDateForBscFinishDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ConstraintTimeForBscFinishTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOperationExecutionRate": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Execution factor",
+     "@sap.quickinfo": "Execution Factor"
+    },
+    "Equipment": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number"
+    },
+    "FunctionalLocation": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Functional Location"
+    },
+    "MaintenanceActivityType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "MaintActivityType",
+     "@sap.quickinfo": "Maintenance activity type"
+    },
+    "BusinessArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Area"
+    },
+    "ProfitCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Profit Center"
+    },
+    "CostingSheet": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Costing Sheet"
+    },
+    "TaxJurisdiction": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Tax Jurisdiction"
+    },
+    "FunctionalArea": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Functional Area"
+    },
+    "PurReqnOrResvnGeneration": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reservation/Purc.req",
+     "@sap.quickinfo": "Reservation Relevance/Generation of Purchase Requisition"
+    },
+    "MaintControllingObjectClass": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Object Class",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "WrkCtrIntCapRqmtsDistr": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Int. dist. key",
+     "@sap.quickinfo": "Distr.cap.reqmts (plant maint.,process order, network)"
+    },
+    "MaintOrdOperationOverheadCode": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Overhead key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderOperationQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaintOrdOperationQuantityUnit",
+     "@sap.label": "Operation Quantity",
+     "@sap.quickinfo": "Operation Total Quantity"
+    },
+    "MaintOrdOperationQuantityUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Operation unit",
+     "@sap.quickinfo": "Unit of measure for activity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "Assembly": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assembly"
+    },
+    "MaintOperationExecStageCode": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Execution Stage",
+     "@sap.quickinfo": "PRE MAIN POST"
+    },
+    "MaintOrdOpAssgdWBSElmntInt": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Internal ID",
+     "@sap.quickinfo": "WBS Element"
+    },
+    "WBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Work Breakdown Structure Element (WBS Element)"
+    },
+    "IsMarkedForDeletion": {
+     "type": "cds.Boolean",
+     "@sap.label": "Deletion Flag",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderOperationInternalID": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceObjectListItem": {
+     "type": "cds.Integer",
+     "@sap.label": "Object counters",
+     "@sap.quickinfo": "Object list counters"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchase Requisition",
+     "@sap.quickinfo": "Purchase Requisition Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Requisition Item",
+     "@sap.quickinfo": "Item Number of Purchase Requisition in Order",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpErlstSchedldExecStrtDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpErlstSchedldExecStrtTme": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpErlstSchedldExecEndDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpErlstSchedldExecEndTme": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecStrtDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecStrtTme": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecEndDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpLtstSchedldExecEndTme": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionStartTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpActualExecutionEndTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ActyConfFcstdEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ActyConfFcstdEndTime": {
+     "type": "cds.Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ActyConfForecastedEndDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ForecastWorkQuantity": {
+     "type": "cds.Decimal",
+     "precision": 7,
+     "scale": 1,
+     "@sap.unit": "MaintOrdOpWorkDurationUnit",
+     "@sap.label": "Forecast Work",
+     "@sap.quickinfo": "Forecast Work (Actual + Remaining)"
+    },
+    "ActualWorkQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaintOrdOpWorkDurationUnit",
+     "@sap.label": "Actual Work",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpProcessPhaseCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Phase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpProcessSubPhaseCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Subphase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "AllMaintOrdCompCmtdQtsAreKept": {
+     "type": "cds.Boolean",
+     "@sap.label": "Keep Committed Qties",
+     "@sap.quickinfo": "Keep Committed Quantities of All Stock Components"
+    },
+    "ControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderConfirmation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Confirmation",
+     "@sap.quickinfo": "Completion confirmation number for the operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderConfCntrValue": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Confirmation counter",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpHasNoRemainingWork": {
+     "type": "cds.Boolean",
+     "@sap.label": "No Remaining Work",
+     "@sap.quickinfo": "Indicator: No Remaining Work Expected",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpHasLeanServices": {
+     "type": "cds.Boolean",
+     "@sap.label": "operation has srv",
+     "@sap.quickinfo": "Indicator: operation is linked to a service",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpDelivDateAdjustment": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Align Date",
+     "@sap.quickinfo": "Align Purchase Requisition Delivery Date"
+    },
+    "TaskListType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Task List Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "TaskListGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Group",
+     "@sap.quickinfo": "Key for Task List Group",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "TaskListGroupCounter": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Group Counter",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SystemStatusText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "System Status",
+     "@sap.quickinfo": "System Status Line",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "UserStatusText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "User Status",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    },
+    "to_MaintOrderOpComponent_2": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpComponent",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderOpLongText": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpLongText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderOpPhaseControl": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpPhaseControl",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderOpProdnRsceTool": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpProdnRsceTool",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_MaintOrderOpRelationship": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpRelationship",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   },
+   "actions": {
+    "ResetMaintOrderOpStsDispatched": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "SetMaintOrderOpToDispatched": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderPartner": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Partners",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "PartnerFunction": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Partner Function",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderPartner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Partner",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderPhaseControl": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Phase Control",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenancePhaseControl": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Phase Control",
+     "@sap.quickinfo": "Phase Control Code",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenancePhaseControlName": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Phase Control",
+     "@sap.quickinfo": "Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenancePhaseControlText": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Description",
+     "@sap.quickinfo": "Description of the Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintPhseCtrlIsSetAutomly": {
+     "type": "cds.Boolean",
+     "@sap.label": "Set Automatically",
+     "@sap.quickinfo": "Phase Control Code: Set Automatically",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintPhaseControlAuthorityCode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Authorization Key",
+     "@sap.quickinfo": "Authorization Key for Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintProcgPhseCtrlActvtnCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Phase Control Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintProcgPhseCtrlActvtnDesc": {
+     "type": "cds.String",
+     "length": 60,
+     "@sap.label": "Short Description",
+     "@sap.quickinfo": "Short Text for Fixed Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "EAMProcessPhaseCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Phase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "EAMProcessSubPhaseCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Subphase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlStatusIsActive": {
+     "type": "cds.Boolean",
+     "@sap.label": "Status Is Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "StatusObject": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhaseCtrlCodeSetBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Set By",
+     "@sap.quickinfo": "Business Object Blocker Code Set By User ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlCodeSetDteTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Activated On",
+     "@sap.quickinfo": "Business Object Phase Control Code Activated On",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhaseCtrlCodeResetBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reset By",
+     "@sap.quickinfo": "Business Object Blocker Code Resolved By User ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlCodeRsetDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Deactivated On",
+     "@sap.quickinfo": "Business Object Phase Control Code Deactivated On",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   },
+   "actions": {
+    "ActvtMaintOrderPhaseControl": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "DactvtMaintOrderPhaseControl": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderActlPlndCostItmSet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.addressable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Detailed Cost Analysis in Maint. Order",
+   "elements": {
+    "P_GLAccountHierarchy": {
+     "key": true,
+     "type": "cds.String",
+     "length": 42,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Hierarchy ID",
+     "notNull": true
+    },
+    "SourceLedger": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Source Ledger",
+     "notNull": true
+    },
+    "Ledger": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Ledger",
+     "@sap.quickinfo": "Ledger in General Ledger Accounting",
+     "notNull": true
+    },
+    "CompanyCode": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code",
+     "notNull": true
+    },
+    "FiscalYear": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Fiscal Year",
+     "notNull": true
+    },
+    "AccountingDocument": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Journal Entry",
+     "notNull": true
+    },
+    "FinancialPlanningReqTransSqnc": {
+     "key": true,
+     "type": "cds.String",
+     "length": 23,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "FP Request TSN",
+     "@sap.quickinfo": "Financial Planning Request Transaction Sequence Number",
+     "notNull": true
+    },
+    "FinancialPlanningDataPacket": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "FP Data Packet",
+     "@sap.quickinfo": "Financial Planning Data Packet Number",
+     "notNull": true
+    },
+    "ActualPlanJournalEntryItem": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.label": "Actual Plan Journal Entry Item",
+     "notNull": true
+    },
+    "GLAccountHierarchy": {
+     "type": "cds.String",
+     "length": 42,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account Hierarchy"
+    },
+    "MaintOrdCostAnlysSpendCategory": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.label": "Par. Node",
+     "@sap.quickinfo": "Hierarchy parent node"
+    },
+    "GLAccount": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account"
+    },
+    "MaintenanceOrder": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order ID"
+    },
+    "CostElementGroupName": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.label": "Description",
+     "@sap.quickinfo": "Hierarchy node description"
+    },
+    "MaintenanceOrderOperation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation"
+    },
+    "MaintenanceOrderSubOperation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation"
+    },
+    "MaintenanceActivityType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "MaintActivityType",
+     "@sap.quickinfo": "Maintenance activity type"
+    },
+    "GLAccountName": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "G/L Account Name"
+    },
+    "MainWorkCenter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Main Work Center",
+     "@sap.quickinfo": "Main work center for maintenance tasks"
+    },
+    "OperationWorkCenter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Work Center"
+    },
+    "ProductGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Product Group"
+    },
+    "Product": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Product",
+     "@sap.quickinfo": "Product Number"
+    },
+    "Assembly": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assembly"
+    },
+    "Equipment": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number"
+    },
+    "FunctionalLocation": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Functional Location"
+    },
+    "ReferenceDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reference Document",
+     "@sap.quickinfo": "Reference Doc. Number"
+    },
+    "ReferenceDocumentType": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reference Document Type"
+    },
+    "ReferenceDocumentContext": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reference Document Context"
+    },
+    "ReferenceDocumentItem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Reference Document Item"
+    },
+    "MaintPriorityType": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Priority Type"
+    },
+    "MaintPriority": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Priority"
+    },
+    "PurchaseOrder": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Document",
+     "@sap.quickinfo": "Purchasing Document Number"
+    },
+    "PurchaseOrderItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Item",
+     "@sap.quickinfo": "Item Number of Purchasing Document"
+    },
+    "Reservation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Reservation",
+     "@sap.quickinfo": "Number of reservation/dependent requirements"
+    },
+    "ReservationItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Reservation Item",
+     "@sap.quickinfo": "Item Number of Reservation"
+    },
+    "ReservationType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reservation Type",
+     "@sap.quickinfo": "Type of Reservation"
+    },
+    "GlobalCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Global Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "AmountInGlobalCurrency": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "GlobalCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Global Currency"
+    },
+    "ActualMaintAmountInGlobCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "GlobalCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "PlannedMaintAmountInGlobCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "GlobalCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "BaselineMaintAmountInGlobCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "GlobalCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "EstimatedMaintAmountInGlobCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "GlobalCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "CompanyCodeCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "AmountInCompanyCodeCurrency": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "CompanyCodeCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "ActualMaintAmountInCoCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "CompanyCodeCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "PlannedMaintAmountInCoCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "CompanyCodeCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "BaselineMaintAmountInCoCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "CompanyCodeCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "EstimatedMaintAmountInCoCrcy": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "CompanyCodeCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount in Company Code Currency"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    },
+    "to_MaintenanceOrderOpComponent_2": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpComponent",
+     "keys": []
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "Parameters": {
+     "@sap.filterable": "false",
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderActlPlndCostItm",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderActlPlndCostItm": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.content.version": "2",
+   "@sap.semantics": "parameters",
+   "elements": {
+    "P_GLAccountHierarchy": {
+     "key": true,
+     "type": "cds.String",
+     "length": 42,
+     "@sap.display.format": "UpperCase",
+     "@sap.parameter": "mandatory",
+     "@sap.label": "Hierarchy ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Set": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderActlPlndCostItmSet",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderObjectListItem": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Object List",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderObjectList": {
+     "key": true,
+     "type": "cds.Integer64",
+     "@sap.label": "Object list",
+     "@sap.quickinfo": "Object list number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceObjectListItem": {
+     "key": true,
+     "type": "cds.Integer",
+     "@sap.label": "Object counters",
+     "@sap.quickinfo": "Object list counters",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Equipment": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number",
+     "@sap.updatable": "false"
+    },
+    "MaintenanceNotification": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Notification",
+     "@sap.quickinfo": "Notification Number",
+     "@sap.updatable": "false"
+    },
+    "Assembly": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assembly",
+     "@sap.updatable": "false"
+    },
+    "Material": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number",
+     "@sap.updatable": "false"
+    },
+    "SerialNumber": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial Number",
+     "@sap.updatable": "false"
+    },
+    "UniqueItemIdentifier": {
+     "type": "cds.String",
+     "length": 72,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "UII",
+     "@sap.quickinfo": "Unique Item Identifier",
+     "@sap.updatable": "false"
+    },
+    "FunctionalLocation": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Functional Location",
+     "@sap.updatable": "false"
+    },
+    "MaintObjectListItemSequence": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sort field",
+     "@sap.quickinfo": "Object list sort field"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpCompLongText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Component Long Text",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintOrderComponentInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "TextObjectType": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Text ID",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "OrderComponentLongText": {
+     "type": "cds.LargeString",
+     "@sap.label": "Long Text"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    },
+    "to_MaintenanceOrderComponent": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpComponent",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpComponent": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Component",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintOrderComponentInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderComponent": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.label": "BOM Item",
+     "@sap.quickinfo": "BOM item number"
+    },
+    "Reservation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Reservation",
+     "@sap.quickinfo": "Number of reservation/dependent requirements",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ReservationItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Item no.",
+     "@sap.quickinfo": "Item Number of Reservation / Dependent Requirements",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ReservationType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Record type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderRoutingNumber": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Opertn Task List No.",
+     "@sap.quickinfo": "Routing Number of Operations in the Order",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderOperationCounter": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Product": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number"
+    },
+    "MaintOrdOperationComponentText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Item Text",
+     "@sap.quickinfo": "BOM Item Text (Line 1)"
+    },
+    "MaintOrdOpCompRequiredQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.label": "Requirement Quantity"
+    },
+    "BaseUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Base Unit of Measure",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "QuantityInUnitOfEntry": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "UnitOfEntry",
+     "@sap.label": "Qty in unit of entry",
+     "@sap.quickinfo": "Quantity in unit of entry"
+    },
+    "UnitOfEntry": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit of Entry",
+     "@sap.quickinfo": "Unit of entry",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "RequirementDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Requirements date",
+     "@sap.quickinfo": "Requirements date for the component"
+    },
+    "RequirementTime": {
+     "type": "cds.Time",
+     "@sap.label": "Time qty required",
+     "@sap.quickinfo": "Time that reservation quantity required"
+    },
+    "RequirementDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "Supplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier",
+     "@sap.quickinfo": "Account Number of Supplier"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "StorageLocation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Location"
+    },
+    "MaintComponentItemCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Item Category",
+     "@sap.quickinfo": "Item category (bill of material)"
+    },
+    "GoodsMovementType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Movement Type",
+     "@sap.quickinfo": "Movement Type (Inventory Management)"
+    },
+    "ReservationIsFinallyIssued": {
+     "type": "cds.Boolean",
+     "@sap.label": "Final Issue",
+     "@sap.quickinfo": "Final Issue for Reservation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaterialGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Group"
+    },
+    "PurReqnOrResvnGeneration": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchase Reqn. / Resvn. Generation",
+     "@sap.quickinfo": "Purchase Requisition or Reservation Generation"
+    },
+    "MaterialCompIsProcuredDirectly": {
+     "type": "cds.Boolean",
+     "@sap.label": "Checkbox",
+     "@sap.heading": ""
+    },
+    "ProductTypeCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Product Type Group"
+    },
+    "ServicePerformer": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Service Performer"
+    },
+    "PerformancePeriodStartDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "PerformancePeriodStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Start Date",
+     "@sap.quickinfo": "Start Date for Period of Performance",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PerformancePeriodEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "End Date",
+     "@sap.quickinfo": "End Date for Period of Performance",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PerformancePeriodEndDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "PerformancePeriodStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Start Time",
+     "@sap.quickinfo": "Start Time for a Lean Service",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PerformancePeriodEndTime": {
+     "type": "cds.Time",
+     "@sap.label": "End Time",
+     "@sap.quickinfo": "End Time for a Lean Service",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LeanServiceDuration": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1,
+     "@sap.unit": "LeanServiceDurationUnit",
+     "@sap.label": "Service Duration",
+     "@sap.quickinfo": "Duration of Lean Service"
+    },
+    "LeanServiceDurationUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Serv. Dur. Unit",
+     "@sap.quickinfo": "Duration Unit for a Lean Service",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "DistributionFunction": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Function",
+     "@sap.quickinfo": "Distribution function"
+    },
+    "MaintOrdCompDeliveryDateAdjmt": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Align Req. Date",
+     "@sap.quickinfo": "Align Component Requirement Date"
+    },
+    "SrvcSchedgIsAlignedWthOpWrkCtr": {
+     "type": "cds.Boolean",
+     "@sap.label": "Align with Work Center",
+     "@sap.quickinfo": "Align scheduling with work center operating hours"
+    },
+    "MaintOrderCompDebitCreditCode": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Debit/Credit Ind.",
+     "@sap.quickinfo": "Debit/Credit Indicator"
+    },
+    "GoodsMovementIsAllowed": {
+     "type": "cds.Boolean",
+     "@sap.label": "Movement Allowed",
+     "@sap.quickinfo": "Goods Movement for Reservation Allowed"
+    },
+    "MaintenanceOrderComponentBatch": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Batch",
+     "@sap.quickinfo": "Batch Number"
+    },
+    "QuantityIsFixed": {
+     "type": "cds.Boolean",
+     "@sap.label": "Quantity is fixed"
+    },
+    "MaintOrdOpComponentGLAccount": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account",
+     "@sap.quickinfo": "G/L Account Number"
+    },
+    "MaintOrdOpCompCostingRelevancy": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "CostingRelevncy",
+     "@sap.quickinfo": "Indicator for Relevancy to Costing"
+    },
+    "MaintCompAltvProdUsgeRateInPct": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Usage Probability",
+     "@sap.quickinfo": "Usage Probability in % (Alternative Item)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrderOpComponentSortText": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sort String"
+    },
+    "MaintOrdOpCompIsBulkProduct": {
+     "type": "cds.Boolean",
+     "@sap.label": "Bulk Material",
+     "@sap.quickinfo": "Indicator: Bulk Material"
+    },
+    "MaterialProvisionType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Mat. Provision Ind.",
+     "@sap.quickinfo": "Material Provision Indicator"
+    },
+    "MaintOrdOpCompAssgdWBSElmntInt": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Internal ID",
+     "@sap.quickinfo": "WBS Element"
+    },
+    "MaintOrderOpComponentPrice": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "@sap.unit": "MaintOrdOpComponentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Price/currency",
+     "@sap.quickinfo": "Price in component currency"
+    },
+    "WBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Work Breakdown Structure Element (WBS Element)"
+    },
+    "MaintOrdOpCompPriceUnitQty": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 0,
+     "@sap.unit": "BaseUnit",
+     "@sap.label": "Price unit"
+    },
+    "MaintOrdOpComponentCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.semantics": "currency-code"
+    },
+    "MatlCompIsMarkedForBackflush": {
+     "type": "cds.Boolean",
+     "@sap.label": "Backflush",
+     "@sap.quickinfo": "Indicator: Backflush"
+    },
+    "PurchasingGroup": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Group"
+    },
+    "DeliveryTimeInDays": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Delivery time (days)",
+     "@sap.quickinfo": "Delivery time in days"
+    },
+    "MaintOrdOpCompGdsRecipientName": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.label": "Goods Recipient"
+    },
+    "MaintOrdOpCompUnloadingPtTxt": {
+     "type": "cds.String",
+     "length": 25,
+     "@sap.label": "Unloading Point"
+    },
+    "GoodsReceiptDurationInWorkDays": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "GR processing time",
+     "@sap.quickinfo": "Goods receipt processing time in days"
+    },
+    "PurchasingInfoRecord": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Info Rec.",
+     "@sap.quickinfo": "Purchasing Info Record Number"
+    },
+    "OperationLeadTimeOffset": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Oper. LT offset",
+     "@sap.quickinfo": "Lead-time offset for operation"
+    },
+    "OpsLeadTimeOffsetUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Operation LTO unit",
+     "@sap.quickinfo": "Unit for lead-time offset for operation",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "MaintOrdOpCompRequisitioner": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.label": "Requisitioner",
+     "@sap.quickinfo": "Name of requisitioner/requester"
+    },
+    "MaintOrdOpCompProcmtTrckgNmbr": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Req. Tracking Number",
+     "@sap.quickinfo": "Requirement Tracking Number"
+    },
+    "ResponsiblePurchaseOrg": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purch. Organization",
+     "@sap.quickinfo": "Purchasing Organization"
+    },
+    "MaintOrdOpCompSpecialStockType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Special Stock",
+     "@sap.quickinfo": "Special Stock Indicator"
+    },
+    "VariableSizeDimension1": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "VariableSizeDimensionUnit",
+     "@sap.label": "Size 1"
+    },
+    "VariableSizeDimensionUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Size unit",
+     "@sap.quickinfo": "Unit of measure for sizes 1 to 3",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "VariableSizeCompFormulaKey": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "VSI Formula",
+     "@sap.quickinfo": "Formula Key for Variable-Size Items"
+    },
+    "VariableSizeDimension2": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "VariableSizeComponentUnit",
+     "@sap.label": "Size 2"
+    },
+    "NumberOfVariableSizeItem": {
+     "type": "cds.Integer",
+     "@sap.label": "Number of Variable-Size Items"
+    },
+    "VariableSizeDimension3": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "VariableSizeComponentUnit",
+     "@sap.label": "Size 3"
+    },
+    "VariableSizeItemQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "VariableSizeComponentUnit",
+     "@sap.label": "VSI Quantity per PC",
+     "@sap.quickinfo": "Variable-Size Item Quantity per Piece (PC)"
+    },
+    "VariableSizeComponentUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "VSI Unit of Measure",
+     "@sap.quickinfo": "Unit of Measure for Variable-Size Item",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "RqmtDateIsEnteredManually": {
+     "type": "cds.Boolean",
+     "@sap.label": "Manual Reqmt Date",
+     "@sap.quickinfo": "Manual Maintenance of Requirement Date"
+    },
+    "SupplierProduct": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier Mat. No.",
+     "@sap.quickinfo": "Material Number Used by Supplier"
+    },
+    "MaintOrdCompCmtdQtyIsKept": {
+     "type": "cds.Boolean",
+     "@sap.label": "Keep Committed Qties",
+     "@sap.quickinfo": "Keep Committed Quantities of Stock Components"
+    },
+    "MaintOrdOpCompPurOutlineAgrmt": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Document",
+     "@sap.quickinfo": "Purchasing Document Number"
+    },
+    "MaintOrdCompPurOutlineAgrmtItm": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Item",
+     "@sap.quickinfo": "Item Number of Purchasing Document"
+    },
+    "IsDeleted": {
+     "type": "cds.Boolean",
+     "@sap.label": "Item deleted",
+     "@sap.quickinfo": "Item is deleted",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpCompProcmtCatalog": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "Catalog ID",
+     "@sap.quickinfo": "Identifier for allowed catalogs",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintOrdOpCompProcmtCatalogItm": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Product ID",
+     "@sap.quickinfo": "Product ID in Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "QuantityWithdrawnInBaseUnit": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.label": "Quantity withdrawn",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ConfirmedAvailableQuantity": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.label": "Available Quantity",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "RecipientLocationCode": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Recipient Location",
+     "@sap.quickinfo": "Recipient location code"
+    },
+    "ControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchase Requisition",
+     "@sap.quickinfo": "Purchase Requisition Number"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Item of requisition",
+     "@sap.quickinfo": "Item Number of Purchase Requisition"
+    },
+    "OverallLimitAmount": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaintOrdOpComponentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Overall Limit"
+    },
+    "ExpectedOverallLimitAmount": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaintOrdOpComponentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Expected Value",
+     "@sap.quickinfo": "Expected Value of Overall Limit"
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    },
+    "to_MaintOrderOpCompLongText": {
+     "type": "cds.Composition",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpCompLongText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpLongText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Operation Long Text",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "TextObjectType": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Text ID",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "OrderOperationLongText": {
+     "type": "cds.LargeString",
+     "@sap.label": "Long Text"
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpPhaseControl": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Op Phase Control",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenancePhaseControl": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Phase Control",
+     "@sap.quickinfo": "Phase Control Code",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenancePhaseControlName": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Phase Control",
+     "@sap.quickinfo": "Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintenancePhaseControlText": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Description",
+     "@sap.quickinfo": "Description of the Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintPhseCtrlIsSetAutomly": {
+     "type": "cds.Boolean",
+     "@sap.label": "Set Automatically",
+     "@sap.quickinfo": "Phase Control Code: Set Automatically",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintPhaseControlAuthorityCode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Authorization Key",
+     "@sap.quickinfo": "Authorization Key for Phase Control Code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintProcgPhseCtrlActvtnCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Phase Control Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintProcgPhseCtrlActvtnDesc": {
+     "type": "cds.String",
+     "length": 60,
+     "@sap.label": "Short Description",
+     "@sap.quickinfo": "Short Text for Fixed Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "EAMProcessPhaseCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Phase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "EAMProcessSubPhaseCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Process Subphase",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlStatusIsActive": {
+     "type": "cds.Boolean",
+     "@sap.label": "Status Is Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhaseCtrlCodeSetBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Set By",
+     "@sap.quickinfo": "Business Object Blocker Code Set By User ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlCodeSetDteTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Activated On",
+     "@sap.quickinfo": "Business Object Phase Control Code Activated On",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhaseCtrlCodeResetBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reset By",
+     "@sap.quickinfo": "Business Object Blocker Code Resolved By User ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaintObjPhseCtrlCodeRsetDteTme": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Deactivated On",
+     "@sap.quickinfo": "Business Object Phase Control Code Deactivated On",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   },
+   "actions": {
+    "ActvtMaintOrderOpPhaseControl": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    },
+    "DactvtMaintOrderOpPhaseControl": {
+     "kind": "action",
+     "returns": {
+      "type": "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult"
+     }
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpProdnRsceTool": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Operation PRT",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProdnRsceToolItemNumber": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PRT Item Number",
+     "@sap.quickinfo": "Item Number for Production Resource/Tool",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "OrderProdnRsceToolText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Text for PRT",
+     "@sap.quickinfo": "First Line of Text for Production Resources/Tools"
+    },
+    "ProdnRsceToolCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PRT Category",
+     "@sap.quickinfo": "Production Resources/Tools Category",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProdnRsceToolCategoryName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "PRT Category Name",
+     "@sap.quickinfo": "Language-dependent description of the PRT category",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProductionResourceTool": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Production Resource/Tool",
+     "@sap.quickinfo": "Production Resource/Tool Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "Product": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number",
+     "@sap.updatable": "false"
+    },
+    "MiscProductionResourceTool": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Miscellaneous PRT",
+     "@sap.quickinfo": "Miscellaneous Production Resources and Tools",
+     "@sap.updatable": "false"
+    },
+    "ProductionResourceToolDesc": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "PRT Description",
+     "@sap.quickinfo": "Description of the Production Resource/Tool",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "ProdnRsceToolControlProfile": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PRT Control Profile",
+     "@sap.quickinfo": "Control Profile for Management of Production Resources/Tools"
+    },
+    "ProdnRsceToolStandardWorkQty": {
+     "type": "cds.Decimal",
+     "precision": 9,
+     "scale": 3,
+     "@sap.unit": "ProdnRsceToolStdWorkQtyUnit",
+     "@sap.label": "Quantity",
+     "@sap.quickinfo": "Standard Value for Quantity of Production Resources/Tools"
+    },
+    "ProdnRsceToolStdWorkQtyUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit for Quantity",
+     "@sap.quickinfo": "Unit for Quantity of Production Resources/Tools",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant",
+     "@sap.updatable": "false"
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderOpRelationship": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Relationship",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintenanceOrderSubOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Suboperation",
+     "@sap.quickinfo": "Maintenance Order Suboperation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "MaintOrdOperationIsSuccessor": {
+     "key": true,
+     "type": "cds.Boolean",
+     "@sap.label": "Successor indicator",
+     "@sap.quickinfo": "Indicator: Activity is successor to selected activity",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "RelatedMaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "RelatedMaintOrderOperation": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Operation",
+     "@sap.quickinfo": "Maintenance Order Operation",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "OrderOpRelationshipIntType": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Type of relationship",
+     "@sap.heading": "",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "PredecessorMaintOrderRouting": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Predecessor ID no.",
+     "@sap.quickinfo": "No. identifying the network to which the predecessor belongs",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PredecessorOrderRoutingNode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SuccessorMaintOrderRouting": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "No. identifying the network to which the successor belongs",
+     "@sap.heading": "",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SuccessorOrderRoutingNode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "RelatedMaintOrderRouting": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "No. identifying the network to which the successor belongs",
+     "@sap.heading": ""
+    },
+    "RelatedOrderRoutingNode": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter"
+    },
+    "FactoryCalendar": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Factory Calendar ID",
+     "@sap.quickinfo": "Factory Calendar",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpOffsetDuration": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1,
+     "@sap.unit": "OpRelshpOffsetDurationUnit",
+     "@sap.label": "Time Interval Relshp",
+     "@sap.quickinfo": "Time Interval Between Relationships"
+    },
+    "OpRelshpOffsetDurationUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Relationship unit",
+     "@sap.quickinfo": "Unit for the time interval between relationships",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "OpRelshpEarliestStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Earliest start/rel.",
+     "@sap.quickinfo": "Earliest start date for the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpEarliestStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Erl. start time /rel",
+     "@sap.quickinfo": "Earliest start time for the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelationshipLatestStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Latest start - rel",
+     "@sap.quickinfo": "Latest start date of the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelationshipLatestStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Latest strt time-rel",
+     "@sap.quickinfo": "Latest start time of the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpEarliestFinishDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Earliest finish rel.",
+     "@sap.quickinfo": "Earliest finish date for the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpEarliestFinishTime": {
+     "type": "cds.Time",
+     "@sap.label": "Erl. finish time/rel",
+     "@sap.quickinfo": "Earliest finish time for the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpLatestFinishDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Latest finish- rel.",
+     "@sap.quickinfo": "Latest finish date of the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpRelshpLatestFinishTime": {
+     "type": "cds.Time",
+     "@sap.label": "Latest fin. time-rel",
+     "@sap.quickinfo": "Latest finish time of the relationship",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_MaintenanceOrderOperation": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrderOperation",
+     "keys": []
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.MaintOrderSettlmtDistrRule": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "2",
+   "@sap.label": "Maintenance Order Settlement Rule",
+   "elements": {
+    "MaintenanceOrder": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Ledger": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Ledger",
+     "@sap.quickinfo": "Ledger in General Ledger Accounting",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "LedgerGroup": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Ledger Group",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "SettlementDistributionRuleGrp": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Distr. Rule Group",
+     "@sap.quickinfo": "Distribution Rule Group",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "SettlmtDistrRuleSequence": {
+     "key": true,
+     "type": "cds.String",
+     "length": 7,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sequence Number",
+     "@sap.quickinfo": "Sequence Number of Distribution Rule",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ControllingObject": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SettlementType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Settlement Type"
+    },
+    "SettlementTypeDesc": {
+     "type": "cds.String",
+     "length": 60,
+     "@sap.label": "Short Description",
+     "@sap.quickinfo": "Short Text for Fixed Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "AccountAssignmentType": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Acct Assignment Type",
+     "@sap.quickinfo": "Account Assignment Type"
+    },
+    "AccountAssignmentTypeDesc": {
+     "type": "cds.String",
+     "length": 60,
+     "@sap.label": "Account Assignment Type Desc",
+     "@sap.quickinfo": "FIS_ACCASTY_TXT60",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "DistributionSourceAssignment": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Source Assignment",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SettlementPercentageRate": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 2,
+     "@sap.label": "Percent",
+     "@sap.quickinfo": "Settlement Percentage Rate"
+    },
+    "SettlementEquivalenceFactor": {
+     "type": "cds.Decimal",
+     "precision": 10,
+     "scale": 0,
+     "@sap.label": "Equivalence Number",
+     "@sap.quickinfo": "Equivalence Number for Order Settlement",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SettlementAmount": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "@sap.unit": "SettlementAmountCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Amount",
+     "@sap.quickinfo": "Amount for Amount Rule",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SettlementAmountCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency of Amount",
+     "@sap.quickinfo": "Currency for the Amount in the Amount Rule",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "currency-code"
+    },
+    "ControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area",
+     "@sap.quickinfo": "Controlling Area of Receiver",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "BusinessArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Area"
+    },
+    "CompanyCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code"
+    },
+    "GLAccount": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account",
+     "@sap.quickinfo": "G/L Account Number"
+    },
+    "ProfitCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Profit Center"
+    },
+    "CostCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Center",
+     "@sap.quickinfo": "Receiver Cost Center"
+    },
+    "OrderID": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Order",
+     "@sap.quickinfo": "Order Number"
+    },
+    "WBSElementInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Internal ID",
+     "@sap.quickinfo": "WBS Element"
+    },
+    "MasterFixedAsset": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Asset",
+     "@sap.quickinfo": "Main Asset Number"
+    },
+    "FixedAsset": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Subnumber",
+     "@sap.quickinfo": "Asset Subnumber"
+    },
+    "NetworkNumberForAcctAssgmt": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Network",
+     "@sap.quickinfo": "Network Number for Account Assignment"
+    },
+    "SalesOrder": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sales Order",
+     "@sap.quickinfo": "Sales Order Number"
+    },
+    "SalesOrderItem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sales Order Item",
+     "@sap.quickinfo": "Item Number in Sales Order"
+    },
+    "CostObject": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Object"
+    },
+    "BusinessProcess": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Process"
+    },
+    "AltvSettlmtDistrRuleSequence": {
+     "type": "cds.String",
+     "length": 7,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Dist. Rule Number",
+     "@sap.quickinfo": "Distribution Rule Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ValidityStartFiscalPeriod": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Valid-from Period",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ValidityStartFiscalYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Valid-from Year",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ValidityEndFiscalPeriod": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Valid To",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ValidityEndFiscalYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Valid-to Year",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SettlmtRule1stUsgeFiscalPeriod": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "First Use",
+     "@sap.quickinfo": "Period of First Use"
+    },
+    "SettlmtRule1stUsageFiscalYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "First Use",
+     "@sap.quickinfo": "Year First Used"
+    },
+    "SettlmtRuleLastUsgeFsclPeriod": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Last Used",
+     "@sap.quickinfo": "Period of Last Use"
+    },
+    "SettlmtRuleLastUsageFiscalYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Last Used",
+     "@sap.quickinfo": "Year Last Used"
+    },
+    "to_MaintenanceOrder": {
+     "type": "cds.Association",
+     "target": "API_BUSSINES_PARTNERS_MAINTENANCE.MaintenanceOrder",
+     "keys": []
+    }
+   }
+  },
+  "API_BUSSINES_PARTNERS_MAINTENANCE.DummyFunctionImportResult": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "IsInvalid": {
+     "type": "cds.Boolean",
+     "@sap.label": "TRUE"
+    }
+   }
+  }
+ }
+}
